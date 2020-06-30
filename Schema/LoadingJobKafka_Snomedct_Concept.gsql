@@ -1,0 +1,11 @@
+USE GRAPH DataPipeline
+
+DROP JOB Load_SNOMEDCT_Concept
+
+DROP DATA_SOURCE SNOMEDCT_Concept_Source
+
+CREATE DATA_SOURCE KAFKA SNOMEDCT_Concept_Source = "/home/tigergraph/datapipeline/load/SNOMEDCT_Concept.json" FOR GRAPH DataPipeline
+
+GRANT DATA_SOURCE SNOMEDCT_Concept_Source TO GRAPH DataPipeline
+
+CREATE LOADING JOB Load_SNOMEDCT_Concept FOR GRAPH DataPipeline { DEFINE FILENAME f1 = "$SNOMEDCT_Concept_Source:SNOMEDCT_Partition.json"; LOAD f1 TO VERTEX SNOMEDCT_Concept VALUES ($0, $1, $2)  USING SEPARATOR=","; }

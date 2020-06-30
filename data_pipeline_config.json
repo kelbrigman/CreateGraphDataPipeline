@@ -1,0 +1,18 @@
+{
+    "vertices": {
+        "data_pipeline_config": {
+            "SNOMEDCT_US": {
+                "data_set_desc" : { "value" : "SNOMED CT Concepts US Edition" },
+                "is_active" : { "value" : true },
+                "source_url" : { "value" : "https://uts-ws.nlm.nih.gov/rest/content-views/2020AA/CUI/C2711988/members" },
+                "update_type" : { "value" : "incremental" },
+                "load_type" : { "value" : "update" },
+                "download_type" : { "value" : "REST" },
+                "topic_name" : { "value" : "SNOMEDCT_Concept" },
+                "authentication_req" : { "value" : "TRUE" },
+                "first_run_date" : { "value" : "2020-01-01" },
+                "next_run_date" : { "value" : "2020-06-05" }
+            }
+        }
+    }
+}
